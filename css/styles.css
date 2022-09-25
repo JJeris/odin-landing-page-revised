@@ -52,12 +52,34 @@ table {
     box-sizing: border-box;
 }
 
+.image {
+	display: block;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+p a, li a, h2 a, h3 a {
+	color: blue;
+	text-decoration: underline;
+	display: inline-block;
+}
+
 header,
 footer,
 main {
     border: 4px solid red;
     /* min-height: 100px; */
-}
+} 
 
 section {
     border: 4px solid lime;
@@ -69,10 +91,74 @@ section {
 body {
 	display: flex;
 	flex-direction: column;
+	border: 10px solid blue;
 	min-height: 100vh;
+}
+
+main {
+	flex-grow: 1;
+	border: 10px solid pink;
 }
 
 .inner-column {
     display: block;
-    border: 4px solid orange;
+    border: 8px solid orange;
+	padding: 10px;
+
+	/* Centers the elements */
+	width: 90%;
+	max-width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* TYPOGRAPHY */
+.loud-voice {
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 0.9;
+}
+
+.calm-voice {
+	font-size: 1rem;
+	/* font-size: 32px; */
+	/* font-weight: ; */
+	line-height: 1.3;
+}
+
+
+/* COMPONENTS */
+
+.button {
+	display: inline-block;
+	background-color: blue;
+	color: white;
+	font-size: 1.2rem;
+	padding: 10px 20px;
+	/* padding: 0.6em 1em; */
+	border-radius: 6px;
+
+}
+
+.graphic-diptych {
+	display: block;
+	border: 4px solid blue;
+}
+
+.graphic-diptych .text-content {
+	display: block;
+}
+
+/* Make the element be side by side or one above the other. */
+@media (min-width: 700px) {
+	.graphic-diptych {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+	}
+
+	.graphic-diptych :is(.text-content, .image) {
+		flex-basis: 50%;
+		border: 4px solid blue;
+	}
 }
